@@ -8,9 +8,43 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
   </head>
 
+
   <body>
+    <nav>
+      <a href="/">Home</a>
+   
+    <a href="https://www.target.com" target="_blank" style="font-size: 40px;">
+    <i class="fa-solid fa-bullseye" style="color: #f70202; font-size: 0.9em;"></i> Target
+      </a>
+
+      <a href="https://www.costco.com" target="_blank" style="font-size: 40px;">
+      <i class="fa-solid fa-hotdog" style="color: #e40707; font-size: 0.9em;"></i> Costco
+      </a>
+
+      <a href="https://www.homedepot.com" target="_blank" style="font-size: 40px;">
+    <i class="fa-solid fa-bucket" style="color: #eb6f0a; font-size: 0.9em"></i> Home Depot
+      </a>
+
+      <% if current_user != nil %>
+      <a href="/users/sign_out">Sign out</a>
+      <a href="/users/edit">Edit profile</a>
+
+      <% else %>
+    
+      <a href="/users/sign_up">Sign up</a>
+      <a href="/users/sign_in">Sign in</a>
+
+    <div class="shopping-websites">
+    <a href="https://www.target.com" target="_blank">Target</a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Target_logo.svg" alt="Target logo" class="store-image">
+    </div>
+
+    
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
