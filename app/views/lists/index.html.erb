@@ -30,7 +30,7 @@ nav ul {
 
 <hr>
 
-<h2>Create shopping lists</h2>
+<h2>Type of Shopping Lists</h2>
 
     <form action="/insert_list" method="post">
       <div>
@@ -47,7 +47,17 @@ nav ul {
     </form>
   </div>
 </div>
+ 
+ <hr>
 
+ <ul>
+ <% @list_of_lists.each do |a_list| %>
+
+ <li>
+ <a href="/lists/<%= a_list%>"><%= a_list.name%></a>
+ </li>
+ <% end %>
+ </ul>
 <hr>
 <div>
   <div>

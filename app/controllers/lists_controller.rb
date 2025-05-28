@@ -14,6 +14,12 @@ class ListsController < ApplicationController
 
     @the_list = matching_lists.at(0)
 
+    @matching_shopping = List.where({ :list_id => @the_list.id })
+
+    @active_shopping = @matching_shopping.where({ :expires_on => (Time.current...) }).order(:expires_on)
+    
+    @expired_shopping = @matching_shopping.where.not({ :expires_on => (Time.current...) }).order({ :expires_on => :desc })
+
     render({ :template => "lists/show" })
   end
 

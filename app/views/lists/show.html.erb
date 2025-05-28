@@ -1,71 +1,58 @@
 <div>
   <div>
     <h1>
-      List #<%= @the_list.id %> details
+      The <%= @the_list.name %> Lists
     </h1>
 
-    <div>
-      <div>
-        <a href="/lists">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_list/<%= @the_list.id %>">
+        <div>
+        <a href="/delete_2/<%= @the_list.id %>">
           Delete list
         </a>
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_list.name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_list.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_list.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
 <hr>
 
+<h2>Create a new shopping list</h2>
+
+<form action="/insert_shopping" method="post">
+<div>
+<label for="name_field">Store Name</label>
+<input id="name_field" type="text" name="query_name">
+</div>
+<div>
+<label for="body_field">Location</label>
+<input id="body_field" type="text" name="query_body">
+</div>
+<div>
+<label for="expires_on_field">Expires on</label>
+<input id="expires_on_field" type="date" name="query_expires_on">
+</div>
 
 <div>
-  <div>
-    <h2>
-      Edit list
-    </h2>
-
-    <form action="/modify_list/<%= @the_list.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_list.name %>">
-      </div>
-
-      <button>
-        Update list
-      </button>
-    </form>
-  </div>
+<label for="list_id_field">List ID</label>
+<input id="list_id_field" type="text" name="query_list_id">
 </div>
 
-<hr>
+<button>Create my shopping list</button>
+</form>
+
+<h2>Active Lists</h2>
+
+<table border="1">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Posted on</th>
+    <th>Expires on</th>
+  </tr>
+
+  <%# @active_shopping.each do |a_shopping| %>
+<!--    <tr>
+      <td><%#= a_shopping.title %></td>
+      <td><%#= a_shopping.body %></td>
+      <td><%#= a_shopping.created_at.strftime("%b %e, %Y") %></td>
+      <td><%#= a_shopping.expires_on.strftime("%b %e, %Y") %></td>
+    </tr>-->
+  <%# end %>
+</table>

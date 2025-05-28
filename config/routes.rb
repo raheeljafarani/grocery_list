@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Shopping resource:
+
+  # CREATE
+  post("/insert_shopping", { :controller => "shoppings", :action => "create" })
+          
+  # READ
+  get("/shoppings", { :controller => "shoppings", :action => "index" })
+  
+  get("/shoppings/:path_id", { :controller => "shoppings", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_shopping/:path_id", { :controller => "shoppings", :action => "update" })
+  
+  # DELETE
+  get("/delete_shopping/:path_id", { :controller => "shoppings", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Item resource:
 
   # CREATE
